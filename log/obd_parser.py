@@ -11,7 +11,7 @@ class LogParameters(dict):
 		self['fuelStatus'] = fuelStatus
 
 	def __str__(self):
-		return ("Time: " + str(self['time']) + ", RPM: " + str(self['rpm']) + ", MHP: " + str(self['mph']) + ", Throttle: " + str(self['throttle']) + ", Load: " + str(self['load']) + ", Fuel Status: " + str(self['fuelStatus']))
+		return ("Time: " + str(self['time']) + ", RPM: " + str(self['rpm']) + ", MPH: " + str(self['mph']) + ", Throttle: " + str(self['throttle']) + ", Load: " + str(self['load']) + ", Fuel Status: " + str(self['fuelStatus']))
 
 
 class LogReader:
