@@ -8,12 +8,12 @@ REMOTE_SERVER = "www.google.com"
 
 
 class LogParameters(dict):
-    def __init__(self, placa, time, rpm, kmh, throttle, load, fuel_status):
+    def __init__(self, placa, time, rpm, mph, throttle, load, fuel_status):
         dict.__init__({})
         self['placa'] = placa
         self['time'] = time
         self['rpm'] = rpm
-        self['kmh'] = kmh
+        self['mph'] = mph
         self['throttle'] = throttle
         self['load'] = load
         self['fuelStatus'] = fuel_status
@@ -21,8 +21,7 @@ class LogParameters(dict):
     def __str__(self):
         return (
             "Placa: " + str(self['placa']) + ", Time: " + str(self['time']) + ", RPM: " + str(
-                self['rpm']) + ", Km/h: " + str(
-                self['kmh']) + ", Throttle: " + str(self['throttle']) + ", Load: " + str(
+                self['rpm']) + ", MPH: " + str(self['mph']) + ", Throttle: " + str(self['throttle']) + ", Load: " + str(
                 self['load']) + ", Fuel Status: " + str(self['fuelStatus']))
 
 

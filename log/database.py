@@ -10,7 +10,8 @@ class Database:
     def __init__(self):
         self.connection = MySQLdb.connect(self.host, self.user, self.password, self.db)
         self.cursor = self.connection.cursor()
-        self.add_parameters = "INSERT into XXXX (t, rpm, mph, throttle, l, fuel_status) values (%s, %s, %s, %s, %s, %s)"
+        self.add_parameters = "INSERT into XXXX (placa, t, rpm, mph, throttle, l, fuel_status) " \
+                              "values (%s, %s, %s, %s, %s, %s, %s)"
     '''
     def insert_parameters(self, parameters):
         try:
@@ -25,7 +26,9 @@ class Database:
     '''
 
     def insert_parameters(self, parameters):
-        self.insert(self.add_parameters, parameters)
+        data = (str(parameters['placa']), str(parameters['time']), str(parameters['rpm']), str(parameters['mph']),
+                str(parameters['throttle']), str(parameters['load']), str(parameters['fuel_status']))
+        self.insert(self.add_parameters, data)
 
     def insert(self, query, data):
         try:
