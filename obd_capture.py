@@ -63,7 +63,7 @@ class OBD_Capture():
 
         #Loop until Ctrl C is pressed        
         localtime = datetime.now()
-        current_time = str(localtime.hour)+":"+str(localtime.minute)+":"+str(localtime.second)+"."+str(localtime.microsecond)
+        current_time = localtime.isoformat()
         #log_string = current_time + "\n"
         text = current_time + "\n"
         results = {}
