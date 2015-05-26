@@ -1,5 +1,5 @@
-from subprocess import call
+from subprocess import Popen
 
-call(["python","obd_recorder.py"])
-call(["python","log/obd_parser.py"])
-call(["python","obd_gui.py"])
+Popen(["python","obd_recorder.py"])
+Popen(["python","log/obd_parser.py"])
+Popen(["python","obd_gui.py"])
