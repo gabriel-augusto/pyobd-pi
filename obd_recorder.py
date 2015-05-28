@@ -60,7 +60,8 @@ class OBD_Recorder():
         
         while 1:
             localtime = datetime.now()
-            current_time = str(localtime.hour)+":"+str(localtime.minute)+":"+str(localtime.second)+"."+str(localtime.microsecond)
+            #current_time = str(localtime.hour)+":"+str(localtime.minute)+":"+str(localtime.second)+"."+str(localtime.microsecond)
+            current_time = localtime.isoformat()
             log_string = current_time
             results = {}
             for index in self.sensorlist:
