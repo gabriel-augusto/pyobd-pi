@@ -29,6 +29,7 @@ class LogReader:
     def __init__(self):
         self.db = None
         self.log_list = []
+        self.text = None
         try:
             with open('log/placa.txt') as arc:
                 self.placa = arc.readline().strip()
@@ -50,12 +51,12 @@ class LogReader:
         for archive in glob.glob('log/*.log'):
             try:
                 with open(archive) as arc:
-                    text = arc.readlines()
+                    self.text = arc.readlines()
             except IOError as ioerr:
                 print("\nIOerr: " + str(ioerr))
 
-            if text:
-                text.pop(0)
+            if self.text:
+                self.text.pop(0)
                 i = 0
                 for eachLine in text:
                     if not i % 60:
