@@ -54,21 +54,22 @@ class LogReader:
             except IOError as ioerr:
                 print("\nIOerr: " + str(ioerr))
 
-            text.pop(0)
-            i = 0
-            for eachLine in text:
-                if not i % 60:
-                    parameters_list = eachLine.strip().split(',')
-                    log_parameters = LogParameters(self.placa,
-                                                   parameters_list[0],
-                                                   parameters_list[1],
-                                                   parameters_list[2],
-                                                   parameters_list[3],
-                                                   parameters_list[4],
-                                                   parameters_list[5])
-                    self.log_list.append(log_parameters)
-                    # self.db.insert_parameters(log_parameters)
-                i += 1
+            if text:
+                text.pop(0)
+                i = 0
+                for eachLine in text:
+                    if not i % 60:
+                        parameters_list = eachLine.strip().split(',')
+                        log_parameters = LogParameters(self.placa,
+                                                       parameters_list[0],
+                                                       parameters_list[1],
+                                                       parameters_list[2],
+                                                       parameters_list[3],
+                                                       parameters_list[4],
+                                                       parameters_list[5])
+                        self.log_list.append(log_parameters)
+                        # self.db.insert_parameters(log_parameters)
+                    i += 1
             os.remove(archive)
             print(str(self))
             # self.db.__del__()
