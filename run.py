@@ -1,8 +1,10 @@
 import bluetooth
 import subprocess
 import os
+# import obd
+import time
 
-target_name = "XT1058"
+target_name = "OBDII"
 target_address = None
 
 while True:
@@ -19,13 +21,17 @@ while True:
     if target_address is not None:
         print "found target bluetooth device with address ", target_address
         os.system("sudo rfcomm bind all")
+        """
         port = 1
         sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         sock.connect((target_address, port))
+        """
         break
     else:
         print "could not find target bluetooth device nearby"
 
+# connection = obd.OBD()
+time.sleep(5)
 subprocess.Popen(["python", "obd_recorder.py"])
 subprocess.Popen(["python", "log/obd_parser.py"])
 subprocess.Popen(["python", "obd_gui.py"])
