@@ -58,7 +58,7 @@ class LogReader:
             if self.text:
                 self.text.pop(0)
                 i = 0
-                for eachLine in text:
+                for eachLine in self.text:
                     if not i % 60:
                         parameters_list = eachLine.strip().split(',')
                         log_parameters = LogParameters(self.placa,
